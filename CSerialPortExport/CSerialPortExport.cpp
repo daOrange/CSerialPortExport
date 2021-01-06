@@ -178,7 +178,7 @@ int main()
 		std::cout << "select port name : " << portName << std::endl;
 
 		sp = cserialport_new(portName.data());//windows:COM1 Linux:/dev/ttyS0
-
+		cserialport_setsync(sp);
 		cserialport_open(sp);
 
 		if (cserialport_isopen(sp))
@@ -194,13 +194,14 @@ int main()
 		//sp.readReady.connect(&receive, &mySlot::OnSendMessage);
 
 		//write
-		byte data[] = { 0x55,0xaa };
-		cserialport_write(sp, data, 2);
+		byte data[] = { 0x55,0xff,0x01, 0xaa, 0x01, 0xaa, 0x01, 0xaa, 0x01, 0xaa, 0x01, 0xaa, 0x01 };
 
-		for (;;)
-		{
-			imsleep(1);
-		}
+		cserialport_write(sp, data, 13);
+
+		//for (;;)
+		//{
+		//	imsleep(1);
+		//}
 	}
 
 	return 0;
