@@ -177,7 +177,9 @@ int main()
 		portName = m_availablePortsList[index].portName;
 		std::cout << "select port name : " << portName << std::endl;
 
-		sp = cserialport_new(portName.data());//windows:COM1 Linux:/dev/ttyS0
+		sp = cserialport_new();//windows:COM1 Linux:/dev/ttyS0
+		cserialport_init(sp, portName.data(), 9600);
+		bool a = cserialport_isopen(sp);
 		cserialport_setsync(sp);
 		cserialport_open(sp);
 
@@ -198,10 +200,16 @@ int main()
 
 		cserialport_write(sp, data, 13);
 
-		//for (;;)
-		//{
-		//	imsleep(1);
-		//}
+		char buffer[1024];
+		while (true) {
+			int  readcount = cserialport_read(sp, buffer, 1024);
+			std::cout << "read " << buffer << std::endl;
+		}
+
+		for (;;)
+		{
+			imsleep(1);
+		}
 	}
 
 	return 0;

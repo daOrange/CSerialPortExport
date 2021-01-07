@@ -144,6 +144,11 @@ public:
     virtual void setDebugModel(bool isDebug) = 0;
 
     /**
+     * @brief Set Debug Model 获取接受缓冲区数据数量
+     */
+    virtual int getBytesToRead() = 0;
+
+    /**
      * @brief Set the Read Time Interval object
      * @details use timer import effectiveness 使用定时器提高效率
      *

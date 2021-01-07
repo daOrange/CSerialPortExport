@@ -13,18 +13,21 @@ typedef struct cserialport_instance_t {
 	CSerialPort* sp;
 } cserialport_instance_t;
 
-LIB_API cserialport_instance_t* cserialport_new(const char*);
+LIB_API cserialport_instance_t* cserialport_new();
 
-LIB_API void cserialport_open(cserialport_instance_t*);
+LIB_API void cserialport_init(cserialport_instance_t* instance, const char* portname, int baudRate);
 
-LIB_API void cserialport_close(cserialport_instance_t*);
+LIB_API void cserialport_open(cserialport_instance_t* instance);
 
-LIB_API void cserialport_write(cserialport_instance_t*, const void*, int);
+LIB_API void cserialport_close(cserialport_instance_t* instance);
 
-LIB_API int cserialport_read(cserialport_instance_t*, char*, int);
+LIB_API void cserialport_write(cserialport_instance_t* instance, const void* data, int length);
 
-LIB_API bool cserialport_isopen(cserialport_instance_t*);
+LIB_API int cserialport_read(cserialport_instance_t* instance, char* data, int length);
 
-LIB_API void cserialport_setsync(cserialport_instance_t*);
+LIB_API bool cserialport_isopen(cserialport_instance_t* instance);
 
+LIB_API void cserialport_setsync(cserialport_instance_t* instance);
+
+LIB_API int cserialport_getbytestoread(cserialport_instance_t* instance);
 #endif

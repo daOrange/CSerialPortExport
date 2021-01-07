@@ -1,10 +1,14 @@
 #include "export.h"
 
-cserialport_instance_t* cserialport_new(const char* portname) {
+cserialport_instance_t* cserialport_new() {
 	cserialport_instance_t* instance = new cserialport_instance_t();
 	instance->sp = new CSerialPort();
-	instance->sp->init(portname);
 	return instance;
+}
+
+void cserialport_init(cserialport_instance_t* instance, const char* portname, int baudRate) {
+	instance->sp->init(portname, baudRate);
+	instance->sp->setMinByteReadNotify(1);
 }
 
 void cserialport_open(cserialport_instance_t* instance) {
@@ -29,4 +33,8 @@ bool cserialport_isopen(cserialport_instance_t* instance) {
 
 void cserialport_setsync(cserialport_instance_t* instance) {
 	instance->sp->setOperateMode(itas109::SynchronousOperate);
+}
+
+int cserialport_getbytestoread(cserialport_instance_t* instance) {
+	return instance->sp->getBytesToRead();
 }

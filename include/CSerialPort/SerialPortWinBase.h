@@ -147,6 +147,11 @@ public:
     virtual int writeData(const char *data, int maxSize);
 
     /**
+     * @brief Set Debug Model 获取接受缓冲区数据数量
+     */
+    virtual int getBytesToRead();
+
+    /**
      * @brief Set Debug Model 设置调试模式
      * @details output serial port read and write details info 输出串口读写的详细信息
      * @todo  Not implemented 未实现
