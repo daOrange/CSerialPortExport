@@ -54,7 +54,7 @@ enum OperateMode
 {
     AsynchronousOperate, ///< Asynchronous 异步
     SynchronousOperate   ///< Synchronous 同步
-};
+};  
 
 /**
  * @brief the BaudRate enum 波特率

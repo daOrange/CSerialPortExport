@@ -30,4 +30,16 @@ LIB_API bool cserialport_isopen(cserialport_instance_t* instance);
 LIB_API void cserialport_setsync(cserialport_instance_t* instance);
 
 LIB_API int cserialport_getbytestoread(cserialport_instance_t* instance);
+
+LIB_API void cserialport_setdtr(cserialport_instance_t* instance, bool isenable);
+
+LIB_API bool cserialport_getdtr(cserialport_instance_t* instance);
+
+LIB_API void cserialport_setrts(cserialport_instance_t* instance, bool isenable);
+
+LIB_API bool cserialport_getrts(cserialport_instance_t* instance);
+
+LIB_API bool cserialport_getcts(cserialport_instance_t* instance);
+
+LIB_API bool cserialport_getdsr(cserialport_instance_t* instance);
 #endif

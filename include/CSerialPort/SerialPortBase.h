@@ -277,12 +277,41 @@ public:
      * @param set [in]
      */
     virtual void setDtr(bool set = true) = 0;
+
+    /**
+     * @brief Get the Dtr object 获取DTR
+     *
+     * @param set [in]
+     */
+    virtual bool getDtr() = 0;
+
     /**
      * @brief Set the Rts object 设置RTS
      *
      * @param set [in]
      */
     virtual void setRts(bool set = true) = 0;
+
+    /**
+     * @brief Get the Rts object 获取RTS
+     *
+     * @param set [in]
+     */
+    virtual bool getRts() = 0;
+
+    /**
+     * @brief Get the Rts object 获取Cts
+     *
+     * @param set [in]
+     */
+    virtual bool getCts() = 0;
+
+    /**
+     * @brief Get the Rts object 获取Dsr
+     *
+     * @param set [in]
+     */
+    virtual bool getDsr() = 0;
 
     /**
      * @brief Get the Version object 获取版本信息
@@ -304,7 +333,9 @@ protected:
     void unlock();
 
 protected:
-    int lastError;                      ///< last error code 最后的错误代码
+    int lastError; ///< last error code 最后的错误代码
+    bool isDtrEnable;
+    bool isRtsEnable;
     itas109::OperateMode m_operateMode; ///< operate mode 串口操作类型
     unsigned int m_minByteReadNotify;   ///< minimum byte of read notify 读取通知触发最小字节数
 private:

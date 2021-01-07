@@ -286,6 +286,14 @@ public:
      * @param set [in]
      */
     virtual void setDtr(bool set = true);
+
+    /**
+     * @brief Get the Dtr object 获取DTR
+     *
+     * @param set [in]
+     */
+    virtual bool getDtr();
+
     /**
      * @brief Set the Rts object 设置RTS
      * @todo Not implemented 未实现
@@ -293,6 +301,27 @@ public:
      * @param set [in]
      */
     virtual void setRts(bool set = true);
+
+    /**
+     * @brief Get the Rts object 获取RTS
+     *
+     * @param set [in]
+     */
+    virtual bool getRts();
+
+    /**
+     * @brief Get the Rts object 获取Cts
+     *
+     * @param set [in]
+     */
+    virtual bool getCts();
+
+    /**
+     * @brief Get the Rts object 获取Dsr
+     *
+     * @param set [in]
+     */
+    virtual bool getDsr();
 
     /**
      * @brief Get the Version object 获取版本信息

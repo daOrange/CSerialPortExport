@@ -278,6 +278,14 @@ public:
      * @param set [in]
      */
     void setDtr(bool set = true);
+
+    /**
+     * @brief Get the Dtr object 获取DTR
+     *
+     * @param set [in]
+     */
+    bool getDtr();
+
     /**
      * @brief Set the Rts object 设置RTS
      * @todo Not implemented 未实现
@@ -285,6 +293,27 @@ public:
      * @param set [in]
      */
     void setRts(bool set = true);
+
+    /**
+     * @brief Get the Rts object 获取RTS
+     *
+     * @param set [in]
+     */
+    bool getRts();
+
+    /**
+     * @brief Get the Rts object 获取Cts
+     *
+     * @param set [in]
+     */
+    bool getCts();
+
+    /**
+     * @brief Get the Rts object 获取Dsr
+     *
+     * @param set [in]
+     */
+    bool getDsr();
 
     /**
      * @brief Get the Version object 获取版本信息

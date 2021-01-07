@@ -38,3 +38,27 @@ void cserialport_setsync(cserialport_instance_t* instance) {
 int cserialport_getbytestoread(cserialport_instance_t* instance) {
 	return instance->sp->getBytesToRead();
 }
+
+void cserialport_setdtr(cserialport_instance_t* instance, bool isenable) {
+	instance->sp->setDtr(isenable);
+}
+
+bool cserialport_getdtr(cserialport_instance_t* instance) {
+	return instance->sp->getDtr();
+}
+
+void cserialport_setrts(cserialport_instance_t* instance, bool isenable) {
+	instance->sp->setRts(isenable);
+}
+
+bool cserialport_getrts(cserialport_instance_t* instance) {
+	return instance->sp->getRts();
+}
+
+bool cserialport_getcts(cserialport_instance_t* instance) {
+	return instance->sp->getCts();
+}
+
+bool cserialport_getdsr(cserialport_instance_t* instance) {
+	return instance->sp->getDsr();
+}
